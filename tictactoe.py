@@ -109,7 +109,7 @@ def make_move(player, board):
     '''
     should_move = True
     while should_move == True:
-        move = int(input('Please choose 1-9 for where you want to place and "X": '))
+        move = int(input('Please choose 1-9 for where you want to place your "X" or "O": '))
         move = move - 1
         if board[move] == " ":
             if player == 1:
