@@ -13,7 +13,6 @@ class Seeker:
 # 2) Create the class constructor. Use the following method comment.
     def __init__(self):
         self.location = 0
-        print(self.location)
         """Constructs a new Seeker.
 
         Args:
