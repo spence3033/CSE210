@@ -4,6 +4,8 @@ from game.casting.cast import Cast
 from game.casting.food import Food
 from game.casting.score import Score
 from game.casting.snake import Snake
+# imported a new class called snake2
+from game.casting.snake2 import Snake2
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
 from game.scripting.move_actors_action import MoveActorsAction
@@ -23,6 +25,8 @@ def main():
     cast.add_actor("foods", Food())
     cast.add_actor("snakes", Snake())
     cast.add_actor("scores", Score())
+    #added snake2 
+    cast.add_actor("snake2", Snake2())
    
     # start the game
     keyboard_service = KeyboardService()

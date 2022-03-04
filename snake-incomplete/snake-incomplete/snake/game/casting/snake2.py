@@ -3,7 +3,7 @@ from game.casting.actor import Actor
 from game.shared.point import Point
 
 
-class Snake(Actor):
+class Snake2(Actor):
     """
     A long limbless reptile.
     
@@ -52,9 +52,7 @@ class Snake(Actor):
         self._segments[0].set_velocity(velocity)
     
     def _prepare_body(self):
-        # this is the starting place for the snake. It used to say Max_x / 2 
-        # but to keep the snakes apart I put max_x / 4
-        x = int(constants.MAX_X / 4)
+        x = int(3*(constants.MAX_X / 4))
         y = int(constants.MAX_Y / 2)
 
         for i in range(constants.SNAKE_LENGTH):

@@ -20,7 +20,10 @@ class ControlActorsAction(Action):
             keyboard_service (KeyboardService): An instance of KeyboardService.
         """
         self._keyboard_service = keyboard_service
-        self._direction = Point(constants.CELL_SIZE, 0)
+        # I changed the direction to start off in the -y direction
+        self._direction = Point(0, -1*constants.CELL_SIZE)
+        self._direction2 = Point(0, -1*constants.CELL_SIZE)
+        
 
     def execute(self, cast, script):
         """Executes the control actors action.
@@ -45,23 +48,26 @@ class ControlActorsAction(Action):
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
         
-        
+        # I changed _direction to _direction2 here
         # left
         if self._keyboard_service.is_key_down('j'):
-            self._direction = Point(-constants.CELL_SIZE, 0)
+            self._direction2 = Point(-constants.CELL_SIZE, 0)
         
         # right
         if self._keyboard_service.is_key_down('l'):
-            self._direction = Point(constants.CELL_SIZE, 0)
+            self._direction2 = Point(constants.CELL_SIZE, 0)
         
         # up
         if self._keyboard_service.is_key_down('i'):
-            self._direction = Point(0, -constants.CELL_SIZE)
+            self._direction2 = Point(0, -constants.CELL_SIZE)
         
         # down
         if self._keyboard_service.is_key_down('k'):
-            self._direction = Point(0, constants.CELL_SIZE)
+            self._direction2 = Point(0, constants.CELL_SIZE)
 
 
         snake = cast.get_first_actor("snakes")
         snake.turn_head(self._direction)
+        # added a snake2
+        snake2 = cast.get_first_actor("snake2")
+        snake2.turn_head(self._direction2)
